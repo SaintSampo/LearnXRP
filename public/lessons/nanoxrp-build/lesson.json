@@ -1,0 +1,181 @@
+{
+  "id": "nanoxrp-build",
+  "title": "NanoXRP Build Guide",
+  "unit": "build",
+  "version": 1,
+  "pages": [
+    {
+      "id": "parts",
+      "title": "Gather Your Parts",
+      "blocks": [
+        {
+          "id": "parts-intro",
+          "type": "text",
+          "text": "Check off each part as you find it. Everything on this list comes in your NanoXRP kit."
+        },
+        {
+          "id": "parts-plastics",
+          "type": "checklist",
+          "title": "Plastics",
+          "items": [
+            { "id": "chassis", "text": "Chassis" },
+            { "id": "bottom-plate", "text": "Bottom plate" },
+            { "id": "battery-cover", "text": "Battery cover" },
+            { "id": "wheels", "text": "2 wheels" },
+            { "id": "casters", "text": "2 casters" }
+          ]
+        },
+        {
+          "id": "parts-electronics",
+          "type": "checklist",
+          "title": "Electronics",
+          "items": [
+            { "id": "board", "text": "NanoXRP controller board" },
+            { "id": "motors", "text": "2 motors with encoders" },
+            { "id": "sonar", "text": "Sonar sensor with 4-pin cable" },
+            { "id": "battery", "text": "Battery pack" },
+            { "id": "motor-wires", "text": "Motor wires" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Before You Build",
+      "blocks": [
+        {
+          "id": "safety-callout",
+          "type": "text",
+          "style": "callout",
+          "text": "**Be gentle with electronics.** Hold boards by their edges, keep liquids away, and never force a connector — if it doesn't fit, check the orientation first."
+        }
+      ]
+    },
+    {
+      "id": "step-1",
+      "title": "Step 1 — Wire the Board",
+      "blocks": [
+        {
+          "id": "step-1-photo",
+          "type": "image",
+          "src": null,
+          "alt": "Motor wires and battery connected to the board"
+        },
+        {
+          "id": "step-1-text",
+          "type": "text",
+          "text": "Connect the motor wires and the battery to the board."
+        }
+      ]
+    },
+    {
+      "id": "step-2",
+      "title": "Step 2 — Wheels and Motors",
+      "blocks": [
+        {
+          "id": "step-2-photo",
+          "type": "image",
+          "src": null,
+          "alt": "Wheels pressed onto motors; motors and casters in the flipped chassis"
+        },
+        {
+          "id": "step-2-text",
+          "type": "text",
+          "text": "Press the wheels onto the motors — nub toward the motor, and **don't push on the encoder magnet**. Then press the motors and casters into the flipped chassis, with the encoder ports facing down."
+        }
+      ]
+    },
+    {
+      "id": "step-3",
+      "title": "Step 3 — Route the Wires",
+      "blocks": [
+        {
+          "id": "step-3-photo",
+          "type": "image",
+          "src": null,
+          "alt": "Wires routed through the rear wheel wells"
+        },
+        {
+          "id": "step-3-text",
+          "type": "text",
+          "text": "Route the wires through the rear wheel wells."
+        }
+      ]
+    },
+    {
+      "id": "step-4",
+      "title": "Step 4 — Bottom Plate",
+      "blocks": [
+        {
+          "id": "step-4-photo",
+          "type": "image",
+          "src": null,
+          "alt": "Bottom plate clipped on with motor wires plugged in"
+        },
+        {
+          "id": "step-4-text",
+          "type": "text",
+          "text": "Clip on the bottom plate — check the line-follow sensor orientation — and plug the motor wires into the motors."
+        }
+      ]
+    },
+    {
+      "id": "step-5",
+      "title": "Step 5 — Sonar and Battery Cover",
+      "blocks": [
+        {
+          "id": "step-5-photo",
+          "type": "image",
+          "src": null,
+          "alt": "Sonar in the chassis with the battery cover clipped snug against it"
+        },
+        {
+          "id": "step-5-text",
+          "type": "text",
+          "text": "Connect the sonar — be gentle with the 4-pin Dupont connector — then slide it into the chassis and clip the battery cover snug against the sonar."
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "title": "Build Check",
+      "blocks": [
+        {
+          "id": "build-quiz",
+          "type": "quiz",
+          "questions": [
+            {
+              "id": "q-nub",
+              "prompt": "When pressing a wheel onto a motor, which way does the nub face?",
+              "choices": [
+                { "id": "toward", "text": "Toward the motor" },
+                { "id": "away", "text": "Away from the motor" },
+                { "id": "either", "text": "It doesn't matter" }
+              ],
+              "correctChoiceId": "toward",
+              "feedbackCorrect": "Right — nub toward the motor, and never push on the encoder magnet.",
+              "feedbackIncorrect": "Look back at Step 2: the nub faces toward the motor."
+            },
+            {
+              "id": "q-sonar",
+              "prompt": "What should you be extra careful with when connecting the sonar?",
+              "choices": [
+                { "id": "dupont", "text": "The 4-pin Dupont connector" },
+                { "id": "wheels", "text": "The wheels" },
+                { "id": "battery", "text": "The battery cover" }
+              ],
+              "correctChoiceId": "dupont",
+              "feedbackCorrect": "Exactly — the 4-pin connector bends easily, so be gentle.",
+              "feedbackIncorrect": "Check Step 5: the 4-pin Dupont connector is the delicate part."
+            }
+          ]
+        },
+        {
+          "id": "done-text",
+          "type": "text",
+          "text": "Your NanoXRP is built! Next stop: *Learn* mode, where you'll make it drive."
+        }
+      ]
+    }
+  ]
+}
