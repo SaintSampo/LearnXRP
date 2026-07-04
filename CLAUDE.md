@@ -9,6 +9,24 @@ architecture decisions. `WORKFLOW.md` describes how to work on this repo
 (session discipline, build order). Read the relevant plan section before
 implementing a feature.
 
+## Hard rules — every session, no exceptions
+
+1. **Never add Claude attribution to git history.** No `Co-Authored-By`
+   trailers, no "Generated with" lines, in commits, PRs, or anywhere else.
+2. **One roadmap session per Claude session.** The next session is the
+   first item in WORKFLOW.md's "Suggested session order" not yet in
+   `git log`. Don't scope-creep into the next one.
+3. **Plan before building.** For anything non-trivial, present a plan and
+   get approval before writing code.
+4. **Verify before committing.** Use the repo verify skill
+   (`.claude/skills/verify`): `npm run lessons:check`, `npm run build`,
+   then drive the real UI with `scripts/verify-smoke.mjs`. Extend the
+   smoke script to cover what the session added.
+5. **Pushing to `main` deploys publicly** (GitHub Pages). Commit at the
+   session milestone; only push working, verified code.
+6. **If a decision changes, update `LearnXRP Project Plan.txt`** in the
+   same session — the plan and the code must not drift apart.
+
 ## Stack
 
 - React 19 + TypeScript + Vite, Tailwind CSS v4 (via `@tailwindcss/vite`)
@@ -23,14 +41,20 @@ implementing a feature.
 - `npm run dev` — dev server
 - `npm run build` — typecheck (`tsc --noEmit`) + production build
 - `npm run preview` — serve the production build locally
+- `npm run lessons:check` — validate all lesson JSON against the schema
+- `node scripts/verify-smoke.mjs <shot-dir>` — Playwright drive of the
+  built app (needs `npm run preview` running)
 
 ## Architecture rules (from the plan)
 
 - **All robot control goes through the `RobotDriver` interface** (plan 8.1):
   WebBluetoothDriver / NativeBleDriver / SimDriver. Blocks, Drive mode, and
   diagnostics never touch a transport directly.
-- **Lessons are structured JSON** per the schema in plan 8.2 — never ad-hoc
-  HTML. Build guides and Arcade challenges reuse the same schema/config.
+- **Lessons are structured JSON** per the schema in plan 8.2, implemented
+  in `src/lessons/schema.ts` (zod), with lesson data in
+  `public/lessons/<id>/lesson.json` — never ad-hoc HTML. Block ids are
+  stable translation anchors: never change one after publish. Build guides
+  and Arcade challenges reuse the same schema/config.
 - **Simulator is NOT physics-based**: arcade-style kinematics on a fixed
   logic tick (plan 6.3).
 - **Wire protocol** (XPP over BLE) is specified in plan Appendix A. Routine
