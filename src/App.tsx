@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import type { Lesson } from './lessons/schema'
 import { loadLesson } from './lessons/loadLesson'
 import { LessonView } from './lessons/LessonView'
+import { CapabilityGate } from './robot/CapabilityGate'
+import { ConnectionChip } from './robot/ConnectionChip'
+import { RobotProvider, useRobot } from './robot/RobotProvider'
 
 // Mode grid (plan, Section 5). Modes light up as their sessions land;
 // Build is live, the rest are disabled placeholders.
@@ -14,7 +17,22 @@ const MODES: { name: string; description: string; lessonId?: string }[] = [
 ]
 
 export default function App() {
+  return (
+    <RobotProvider>
+      <AppContent />
+    </RobotProvider>
+  )
+}
+
+function AppContent() {
+  const { bleSupported } = useRobot()
   const [openLessonId, setOpenLessonId] = useState<string | null>(null)
+
+  // Governing rule (plan Section 4): no Web Bluetooth means no mode grid —
+  // a dedicated page explains why and where to go instead.
+  if (!bleSupported) {
+    return <CapabilityGate />
+  }
 
   if (openLessonId) {
     return <LessonScreen lessonId={openLessonId} onExit={() => setOpenLessonId(null)} />
@@ -24,8 +42,11 @@ export default function App() {
     <main className="min-h-screen bg-slate-50 p-8 text-slate-900">
       <header className="mb-8 flex items-center justify-between">
         <h1 className="text-3xl font-bold text-violet-700">LearnXRP</h1>
-        <div className="rounded-full bg-slate-200 px-4 py-2 text-sm text-slate-600">
-          Profile
+        <div className="flex items-center gap-3">
+          <ConnectionChip />
+          <div className="rounded-full bg-slate-200 px-4 py-2 text-sm text-slate-600">
+            Profile
+          </div>
         </div>
       </header>
 
