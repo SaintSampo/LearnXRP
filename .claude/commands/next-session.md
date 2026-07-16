@@ -8,7 +8,7 @@ Start the next LearnXRP roadmap session:
    `git log --oneline` to determine which sessions are already done.
    The next session is the first one not yet represented in the log.
 2. Announce which session you picked and why, then read the sections of
-   "LearnXRP Project Plan.txt" that it touches (the session lines
+   "LearnXRP Project Plan.md" that it touches (the session lines
    reference plan section numbers).
 3. Present an implementation plan and wait for approval before writing
    any code (CLAUDE.md hard rule 3).

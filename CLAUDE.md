@@ -4,7 +4,7 @@ Cross-platform learning platform for the NanoXRP educational robot
 (two-wheeled, ultrasonic sonar, line-following sensors, IMU, motors with
 encoders). Robots are controlled from the browser over BLE.
 
-**`LearnXRP Project Plan.txt` is the source of truth** for all product and
+**`LearnXRP Project Plan.md` is the source of truth** for all product and
 architecture decisions. `WORKFLOW.md` describes how to work on this repo
 (session discipline, build order). Read the relevant plan section before
 implementing a feature.
@@ -24,7 +24,7 @@ implementing a feature.
    smoke script to cover what the session added.
 5. **Pushing to `main` deploys publicly** (GitHub Pages). Commit at the
    session milestone; only push working, verified code.
-6. **If a decision changes, update `LearnXRP Project Plan.txt`** in the
+6. **If a decision changes, update `LearnXRP Project Plan.md`** in the
    same session — the plan and the code must not drift apart.
 
 ## Stack

@@ -1,7 +1,7 @@
 # LearnXRP — Working with Claude Code
 
 How to get the most value out of Claude Code while building LearnXRP.
-`LearnXRP Project Plan.txt` is the source of truth for **what** to build;
+`LearnXRP Project Plan.md` is the source of truth for **what** to build;
 this file is about **how** to build it efficiently.
 
 ## One-time setup (first session)
@@ -15,7 +15,7 @@ this file is about **how** to build it efficiently.
    - The two load-bearing contracts: the **RobotDriver interface** and the
      **lesson JSON schema** (paste their TypeScript definitions once written).
    - Commands: dev server, build, test, deploy.
-   - A pointer to `LearnXRP Project Plan.txt`.
+   - A pointer to `LearnXRP Project Plan.md`.
 
    `CLAUDE.md` is loaded into every session — keep it short and high-signal,
    and update it whenever a decision in the plan changes.

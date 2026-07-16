@@ -4,7 +4,7 @@ A learning platform for the NanoXRP educational robot: guided lessons,
 a Blockly coding environment, a simulator, and direct drive control —
 all in the browser, with robots connected over Bluetooth Low Energy.
 
-See **`LearnXRP Project Plan.txt`** for the full project plan and
+See **`LearnXRP Project Plan.md`** for the full project plan and
 **`WORKFLOW.md`** for how this repo is developed.
 
 ## Development
